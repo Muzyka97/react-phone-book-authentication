@@ -1,22 +1,29 @@
 import PropTypes from 'prop-types'; 
-import styled from 'styled-components';
+import {Box, TextField} from '@mui/material';
 
-const InputSpaceFilter = styled.input`
-    margin-top: ${p=>p.theme.space[3]}px;
-`
+// import styled from 'styled-components';
+
+// const InputSpaceFilter = styled.input`
+//     margin-top: ${p=>p.theme.space[3]}px;
+// `
 
 const Filter = ({filter, changeFilter}) =>{
     return(
-        <>
-            <label htmlFor="">
-                Find contact by name
-            </label > <br/>
-            <InputSpaceFilter
+        <Box
+
+            >
+            <TextField
+                id="standard-number" 
+                label=" Find contact by name" 
+                variant="standard"
+                size='small'
+                fullWidth 
                 onChange={changeFilter}
                 value={filter}
                 type="text"
-                name="filter" />
-        </>
+                name="filter" 
+            />
+        </Box>
     )
 };
 Filter.propTypes = {

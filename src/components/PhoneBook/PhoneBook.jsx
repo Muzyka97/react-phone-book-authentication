@@ -6,7 +6,8 @@ import Form from "./Form";
 import ContactsList from "./ContactsList";
 import Filter from "./Filter/Filter";
 import Section from "components/Section";
-import {Box} from '../Box/Box';
+// import {Box} from '../Box/Box';
+import {Box} from '@mui/material';
 
 import { addContacts, deleteContacts, fetchContacts } from '../../redux/contacts/operation';
 
@@ -45,26 +46,31 @@ const PhoneBook = () =>{
     };
 
     return(
-        <Box
-        ml='20px'
-        mt='20px'
-        width='550px'>
+        // ml='20px'
+        // mt='20px'
+        // width='550px'
+        <Box sx={{p: 5}}>
             <Section title="PhoneBook">
-                <Box
-                border={'normal'}
+            {/* border={'normal'}
                 paddingLeft='8px'
                 paddingRight='40px'
                 paddingTop='8px'
-                paddingBottom="20px">
+                paddingBottom="20px" */}
+                <Box component='div'>
                     <Form onSubmit={addContact}/>
                 </Box>
             </Section>
             <Section title='Contacts'>
-                <Box
-                    paddingLeft='8px'
+            {/* paddingLeft='8px'
                     paddingRight='40px'
                     paddingTop='8px'
-                    paddingBottom="40px">
+                    paddingBottom="40px" */}
+                <Box  component='div'
+                       m="auto"
+                       sx={{     
+                           width: 700,
+                           padding: 1,
+                       }}>
                     <Filter filter={filter} changeFilter={changeFilter}/>
                     <ContactsList contacts={getFilteredContacts()} deleteContacts={deleteContact}/>
                 </Box>

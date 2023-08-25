@@ -2,18 +2,20 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperation'; 
 
-import Button from 'shared/Button';
+import { Typography,Box,TextField } from '@mui/material';
 
-const styles = {
-    form: {
-      width: 320,
-    },
-    label: {
-      display: 'flex',
-      flexDirection: 'column',
-      marginBottom: 15,
-    },
-};
+import Button from 'shared/ButtonShared';
+
+// const styles = {
+//     form: {
+//       width: 320,
+//     },
+//     label: {
+//       display: 'flex',
+//       flexDirection: 'column',
+//       marginBottom: 15,
+//     },
+// };
 
 const Register = () => {
     const dispach = useDispatch();
@@ -43,45 +45,68 @@ const handleSubmit = e => {
 };
 
     return(
-        <div>
-        <h1>Сторінка для реєстрації</h1>
-  
-        <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-          <label style={styles.label}>
-            Імя
-            <input 
+        <Box  sx={{pt: 20}}>
+          <Typography textAlign='center' variant="h2" gutterBottom>
+             Сторінка для реєстрації
+          </Typography>
+
+
+          <Box 
+            m="auto"
+            component='form' 
+            onSubmit={handleSubmit}  
+            autoComplete="off"
+            sx={{     
+              width: 700,
+              height: 500,
+              padding: 1
+            }}
+          >
+            <TextField 
+            id="name" 
+            label="Імя" 
+            variant="standard"
+            size='small'
+            fullWidth 
             type="text" 
             name="name" 
             value={name} 
-            placeholder="Імя"
             onChange={handleChange} 
-            />
-          </label>
-  
-          <label style={styles.label}>
-            Пошта
-            <input
-              type="email"
-              name="email"
-              value={email}
-              placeholder="Пошта"
-              onChange={handleChange} 
-            />
-          </label>
-  
-          <label style={styles.label}>
-            Пароль
-            <input
-              type="password"
-              name="password"
-              value={password}
-              placeholder="Пароль повинен містити більше 7-ми симфолів."
-              onChange={handleChange}
-            />
-          </label>
-          <Button type={"submit"}>Зареєструватися</Button>
-        </form>
-      </div>
+            margin='normal'
+          />
+          <TextField 
+            id="email" 
+            label="Пошта" 
+            variant="standard"
+            size='small'
+            fullWidth 
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleChange} 
+            margin='normal'
+          />
+          <TextField 
+            id="password" 
+            label="Пароль (повинен містити більше 7-ми симфолів)" 
+            variant="standard"
+            size='small'
+            fullWidth 
+            type="password"
+            name="password"
+            value={password}
+            onChange={handleChange}
+            margin='normal'
+          />
+          <Box  
+                component='span'
+                display='flex' 
+                justifyContent="center"
+                sx={{mt: 5}}>
+            <Button type={"submit"}>Зареєструватися</Button>
+          </Box>
+        </Box>
+      </Box>
     )
 };
 

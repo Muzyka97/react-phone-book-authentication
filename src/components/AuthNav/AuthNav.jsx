@@ -1,39 +1,41 @@
-import { NavLink } from 'react-router-dom';
-
-const styles = {
-  container:{
-    marginLeft: 1050,
-  },
-  link: {
-    display: 'inline-block',
-    textDecoration: 'none',
-    padding: 12,
-    fontWeight: 700,
-    color: '#2A363B',
-  },
-  activeLink: {
-    color: '#E84A5F',
-  },
-};
+// import { NavLink } from 'react-router-dom';
+import {Box, Link} from '@mui/material'
+// const styles = {
+//   container:{
+//     marginLeft: 1050,
+//   },
+//   link: {
+//     display: 'inline-block',
+//     textDecoration: 'none',
+//     padding: 12,
+//     fontWeight: 700,
+//     color: '#2A363B',
+//   },
+//   activeLink: {
+//     color: '#E84A5F',
+//   },
+// };
 
 const AuthNav = () => {
     return(
-        <div style={styles.container}>
-      <NavLink
-        to="/register"
-        style={styles.link}
-        activestyle={styles.activeLink}
+        <Box>
+      <Link
+        href="/register"
+        color="inherit"
+        underline="none"
+        mr={5}
       >
         Реєстрація
-      </NavLink>
-      <NavLink
-        to="/login"
-        style={styles.link}
-        activestyle={styles.activeLink}
+      </Link>
+      <Link
+        mr={5}
+        href="/login"
+        underline="none"
+        color="inherit"
       >
         Логін
-      </NavLink>
-    </div>
+      </Link>
+    </Box>
     )
 };
 

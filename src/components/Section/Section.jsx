@@ -1,12 +1,18 @@
 import PropTypes from 'prop-types';
+import {Typography, Box} from '@mui/material';
 
 const Sections = ({title, children}) =>{
     return (  
     <section>
-        <div>
-          <h2>{title}</h2>
+        <Box
+          component='div'>
+          <Typography
+          textAlign='center' 
+          variant="h3" 
+          gutterBottom
+          >{title}</Typography>
           {children}
-        </div>
+        </Box>
     </section>)
 };
 Sections.propTypes ={

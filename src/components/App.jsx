@@ -3,10 +3,12 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { lazy} from "react";
 
+import { Box } from '@mui/material';
+
 import PrivateRoute from "shared/PrivateRoute";
 import PublicRoute from "shared/PublicRoute";
-import AppBar from "./AppBar";
-import {Box} from './Box/Box'
+import Header from "./Header";
+// import {Box} from './Box/Box'
 import { fetchCurrentUser } from "redux/auth/authOperation";
 
 
@@ -23,9 +25,9 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <Box width='1440px'>
+    <Box>
       <Routes>
-        <Route path="/" element={<AppBar/>}>
+        <Route path="/" element={<Header/>}>
           <Route index element={<Home/>}/>
           <Route element={<PublicRoute/>}>
             <Route path="login" element={<Login/>}/>
@@ -43,5 +45,4 @@ export const App = () => {
 
 
 
-// 2.закоментувати весь css 
-// 3.підключити бібліотеку mATERIAL UI
+

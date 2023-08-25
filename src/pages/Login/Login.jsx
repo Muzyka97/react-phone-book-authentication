@@ -1,19 +1,21 @@
+import { Typography,Box, TextField } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/authOperation'; 
 
-import Button from 'shared/Button';
+import Button from 'shared/ButtonShared';
 
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
+
+// const styles = {
+//   form: {
+//     width: 320,
+//   },
+//   label: {
+//     display: 'flex',
+//     flexDirection: 'column',
+//     marginBottom: 15,
+//   },
+// };
 
 const Login = () => {
 const dispach = useDispatch();
@@ -38,38 +40,57 @@ const handleSubmit = e => {
   setPassword('');
 };
 
-    return (
-        <>
-         <div>
-      <h1>Сторінка логіна</h1>
+  return (
+        <Box component='div'
+             sx={{pt: 20}}>
+          <Typography textAlign='center' variant="h2" gutterBottom>
+            Сторінка логіна
+          </Typography>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-        <label style={styles.label}>
-          Почта
-          <input
+          <Box 
+            m="auto"
+            component='form' 
+            onSubmit={handleSubmit}  
+            autoComplete="off"
+            sx={{     
+              width: 700,
+              height: 500,
+              padding: 1,
+            }}
+          >
+          <TextField 
+            id="standard-basic" 
+            label="Email" 
+            variant="standard"
+            size='small'
+            fullWidth 
+            value={email}
             type="email"
             name="email"
-            placeholder="email"
-            value={email}
             onChange={handleChange}
+            margin='normal'
           />
-        </label>
-
-        <label style={styles.label}>
-          Пароль
-          <input
-            type="password"
-            name="password"
-            placeholder="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </label>
-
-        <Button type={"submit"}>Вхід</Button>
-      </form>
-    </div>
-        </>
-    )
+          <TextField 
+              id="standard-basics" 
+              label="Password" 
+              variant="standard"
+              size='small'
+              fullWidth 
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              margin='normal'
+            />
+            <Box 
+                component='span'
+                display='flex' 
+                justifyContent="center"
+                sx={{mt: 5}}>
+              <Button  type={"submit"}>Вхід</Button>
+            </Box>
+          </Box>
+        </Box>
+  )
 };
 export default Login;
