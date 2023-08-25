@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
      <ThemeProvider theme={theme}>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <BrowserRouter basename='/react-phone-book-authentication'>
+          <BrowserRouter basename="/react-phone-book-authentication">
             <App />
           </BrowserRouter>
         </PersistGate>
