@@ -34,7 +34,7 @@ import { Container } from "@mui/material";
 
 const Header = () => {
     const isLoggedIn = useIsLogin();
-    
+    console.log(isLoggedIn);
 
     return(
         <Box>
