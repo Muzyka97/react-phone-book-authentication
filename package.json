@@ -2,7 +2,7 @@
   "name": "react-phone-book-authentication",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Muzyka97/react-phone-book-authentication.git",
+  "homepage": "https://muzyka97.github.io/react-phone-book-authentication/",
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.10.6",
