@@ -1,13 +1,13 @@
+// import styled from 'styled-components';
 import PropTypes from 'prop-types'; 
 import {Box, List, ListItem} from '@mui/material';
-// import styled from 'styled-components';
 
 import Button from 'shared/ButtonShared';
 
 // const List = styled.li`
 //     margin-top: ${p=>p.theme.space[3]}px;
 // `
-const ContactsList = ({contacts,deleteContacts}) =>{
+const ContactsList = ({contacts, deleteContacts}) =>{
 
     const contact = contacts.map(({id, name, number})=>(
         <ListItem 

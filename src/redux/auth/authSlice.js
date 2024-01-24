@@ -20,42 +20,47 @@ const handleRejected = (state, action) => {
 const authSlice = createSlice({
     name: 'auth',
     initialState,
-    extraReducers: {
-        [register.pending] : handlePending,
-        [register.fulfilled]:(state, action)=>{
+    reducers: {},
+    extraReducers: (builder)=> {
+        builder
+        .addCase(register.pending, handlePending)
+        .addCase(register.fulfilled, (state, action)=>{
             state.isLoading = false;
             state.error = null;
             state.user = action.payload.user;
             state.token = action.payload.token;
             state.isLoggedIn = true;
-        },
-        [register.rejected] : handleRejected,
-        [logIn.pending] : handlePending,
-        [logIn.fulfilled]:(state, action)=>{
+        })
+        .addCase(register.rejected, handleRejected)
+
+        .addCase(logIn.pending, handlePending)
+        .addCase(logIn.fulfilled, (state, action)=>{
             state.isLoading = false;
             state.error = null;
             state.user = action.payload.user;
             state.token = action.payload.token;
             state.isLoggedIn = true;
-        },
-        [logIn.rejected] : handleRejected,
-        [logOut.pending] : handlePending,
-        [logOut.fulfilled]:(state)=>{
+        })
+        .addCase(logIn.rejected, handleRejected)
+
+        .addCase(logOut.pending, handlePending)
+        .addCase(logOut.fulfilled,(state)=>{
             state.isLoading = false;
             state.error = null;
             state.user = {name: null, email: null}
             state.token = null;
             state.isLoggedIn = false;
-        },
-        [logOut.rejected] : handleRejected,
-        [fetchCurrentUser.pending] : handlePending,
-        [fetchCurrentUser.fulfilled]:(state, action)=>{
+        })
+        .addCase(logOut.rejected, handleRejected)
+        
+        .addCase(fetchCurrentUser.pending, handlePending)
+        .addCase(fetchCurrentUser.fulfilled, (state, action)=>{
             state.isLoading = false;
             state.error = null;
             state.user = action.payload
             state.isLoggedIn = true;
-        },
-        [fetchCurrentUser.rejected] : handleRejected,
+        })
+        .addCase(fetchCurrentUser.rejected, handleRejected)
     }
 });
 

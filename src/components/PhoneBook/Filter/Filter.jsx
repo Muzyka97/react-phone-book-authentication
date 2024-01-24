@@ -9,9 +9,7 @@ import {Box, TextField} from '@mui/material';
 
 const Filter = ({filter, changeFilter}) =>{
     return(
-        <Box
-
-            >
+        <Box>
             <TextField
                 id="standard-number" 
                 label=" Find contact by name" 

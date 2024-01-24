@@ -1,5 +1,6 @@
 // import styled from "styled-components";
-import { AppBar, Box } from "@mui/material";
+// import { Box } from "theme-ui";
+import { AppBar, Box, Container } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import { Suspense } from "react";
 
@@ -9,9 +10,6 @@ import UserMenu from "components/UserMenu";
 import Loader from "shared/Loader";
 
 import useIsLogin from '../../hooks/useIsLogin';
-import { Container } from "@mui/material";
-// import { Box } from "theme-ui";
-
 
 // const Header = styled.header`
 //     border-bottom: ${p=>p.theme.borders.normal};
@@ -29,13 +27,11 @@ import { Container } from "@mui/material";
 //     display: 'inline-flex';
 //     justify-content: 'space-between';
 //     align-items: 'center';
-// `;
-// FlexContainer непрацює адже перебивається user agent stylesheet
+// `
 
 const Header = () => {
     const isLoggedIn = useIsLogin();
-    console.log(isLoggedIn);
-
+    
     return(
         <Box>
             <AppBar position="static">

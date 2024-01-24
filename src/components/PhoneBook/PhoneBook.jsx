@@ -1,13 +1,14 @@
+// import {Box} from '../Box/Box';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from 'redux/sliceFilter';
 import { useEffect } from 'react';
+
+import {Box} from '@mui/material';
 
 import Form from "./Form";
 import ContactsList from "./ContactsList";
 import Filter from "./Filter/Filter";
 import Section from "components/Section";
-// import {Box} from '../Box/Box';
-import {Box} from '@mui/material';
 
 import { addContacts, deleteContacts, fetchContacts } from '../../redux/contacts/operation';
 

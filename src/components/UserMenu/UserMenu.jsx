@@ -57,7 +57,10 @@ const UserMenu = () =>{
         display='flex'
         alignItems='center'
         >
-        <Avatar src={avatar} alt="user"/>
+        <Avatar src={avatar} alt="user"
+          sx={{ mr: 1,
+          
+          }}/>
         <span >Привіт,{name}!</span>
         <Box 
             component="span"
